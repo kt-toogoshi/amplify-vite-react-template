@@ -8,6 +8,7 @@ const client = generateClient<Schema>();
 function App() {
   
     const { signOut } = useAuthenticator();
+    const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]); // ← 追加
   
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
